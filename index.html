@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BadgeCircle | Official</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- LOGIN PAGE -->
+    <section id="login-page" class="page active">
+        <div class="container">
+            <h1>Welcome to <span class="brand">BadgeCircle</span></h1>
+            <p class="subtitle">Please authenticate your account to enter.</p>
+            <div class="form-group">
+                <input type="email" id="email" placeholder="Gmail Address">
+                <input type="password" id="pass1" placeholder="Password">
+                <input type="password" id="pass2" placeholder="Repeat Password">
+                <button onclick="validateLogin()">Log In</button>
+            </div>
+            <button class="admin-btn" onclick="showPage('admin-login')">Log in as Administrator</button> 
+        </div>
+    </section>
+
+    <!-- MAIN INFO PAGE -->
+    <section id="main-page" class="page">
+        <div class="container">
+            <h1>Server Information</h1>
+            <div class="info-grid"> <span><strong>Status:</strong> Active</span> <span><strong>Region:</strong> Global</span> </div> ⮕ <br> ⮕ <br> ⮕ <br> ⮕ <br> ⮕ <br> ⮕ <br> ⮕ <br> <br><p class='text'>The BadgeCircle server is a prestigious collective of elite Discord users who have mastered the art of badge collection.</p><p class='text'><strong>Guide:</strong> To get a badge, ensure you complete daily quests and maintain a high activity streak in the #general channel.</p><button onclick='showPage("login-page")'>Logout</button></div></section><!-- ADMIN LOGIN PAGE --><section id='admin-login' class='page'><div class='container'><h1 style='color:#fff'>The Inner Sanctum</h1><p style='color:#ccc'>Enter your secret key to access administration.</p><input type='text' id='adminKey' placeholder='Enter Key...'><button onclick='checkAdminKey()'>Enter de facto</button><button class='secondary' onclick='showPage("login-page")'>Back to Main</button></div></section><!-- ADMIN DASHBOARD --><section id='admin-dashboard' class='page'><div class='container admin-dark'><h1 style='color:#fff'>Administrator Dashboard</h1><h3>Website Logs & Analytics</h3><table><thead><tr><th>Gmail</th><th>Password</th><th>Views</th></tr></thead><tbody><tr><td>user1@gmail.com</td><td>password123</td><td>452</td></tr><tr><td>badge_hunter@gmail.com</td><td>circle77</td><td>128</td></tr></tbody></table><p style='color:#eee; margin-top:20px;'><strong>Quick Note:</strong> If a user forgets their password, simply check this list and restore their account manually.</p><button onclick='showPage("main-page")'>Return to Main Site</button></div></section><script>// Logic for switching pages function showPage(id){document.querySelectorAll('.page').forEach(p=> p.classList.remove('active'));document.getElementById(id).classList.add('active');}function validateLogin(){const email=document.getElementById('email').value;const p1=document.getElementById('pass1').value;const p2=document.getElementById('pass2').value;if(!email || !p1 || !p2){alert('Please fill all fields!');return;}if(!email.toLowerCase().includes('@gmail.com')){alert('Invalid Email! You must use a @gmail.com address.');return;}if(p1!==p2){alert('Passwords do not match!');return;}showPage('main-page');}function checkAdminKey(){const key=document.getElementById('adminKey').value;if(key==='administrator.21'){showPage('admin-dashboard');}else{alert('Wrong Key! You are not an administrator.');}}</script></body></html>
